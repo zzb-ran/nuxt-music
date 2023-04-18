@@ -10,22 +10,26 @@
         <v-icon>mdi-triangle</v-icon>
       </v-system-bar>
 
-      <v-navigation-drawer v-model="drawer">
+      <v-navigation-drawer v-model="drawer" permanent absolute>
         <v-sheet color="grey-lighten-4" class="pa-4">
-          <v-avatar class="mb-4" color="grey-darken-1" size="64"></v-avatar>
-
-          <div>john@google.com</div>
+          <v-avatar class="mb-4" color="grey-darken-1" size="64">
+            123
+          </v-avatar>
+          <div>123456@gmail.com</div>
         </v-sheet>
 
         <v-divider></v-divider>
 
-        <v-list>
-          <v-list-item v-for="[icon, text] in links" :key="icon" link>
-            <template v-slot:prepend>
-              <v-icon>{{ icon }}</v-icon>
-            </template>
-
-            <v-list-item-title>{{ text }}</v-list-item-title>
+        <v-list nav>
+          <v-list-item
+            v-for="[icon, text, link] in links"
+            :key="icon"
+            active-color="primary"
+            :prepend-icon="icon"
+            :title="text"
+            :value="link"
+            :to="link"
+          >
           </v-list-item>
         </v-list>
       </v-navigation-drawer>
@@ -42,9 +46,17 @@
 <script setup>
 const drawer = ref(null);
 const links = [
-  ["mdi-inbox-arrow-down", "Inbox"],
-  ["mdi-send", "Send"],
-  ["mdi-delete", "Trash"],
-  ["mdi-alert-octagon", "Spam"]
+  ["mdi-home", "Index", "/"],
+  ["mdi-equalizer", "Recommend", "/recommend"]
 ];
 </script>
+
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  color: black;
+}
+</style>
