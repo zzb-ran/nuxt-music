@@ -1,5 +1,4 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { HookResult } from "nuxt/schema";
 import vuetify from "vite-plugin-vuetify";
 
 export default defineNuxtConfig({
