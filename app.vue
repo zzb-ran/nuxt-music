@@ -47,7 +47,7 @@
 const drawer = ref(null);
 const links = [
   ["mdi-home", "Index", "/"],
-  ["mdi-equalizer", "Recommend", "/recommend"]
+  ["mdi-equalizer", "Recommend", "/recommend"],
 ];
 </script>
 
@@ -58,5 +58,9 @@ const links = [
   list-style: none;
   text-decoration: none;
   color: black;
+}
+
+:deep(.v-main) {
+  position: relative;
 }
 </style>
